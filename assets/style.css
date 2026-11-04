@@ -93,3 +93,65 @@ html{scroll-behavior:smooth;background:#102c35}body{margin:0}button,a{-webkit-ta
 
 @media(max-width:760px){#adrien-dennis .dn-nav{display:none}#adrien-dennis .dn-theme{margin-left:auto}}
 #adrien-dennis .dn-nav a[aria-current="page"]:after{opacity:1;transform:none}
+
+/* Reading chapters: quiet emphasis, shared by pointer and keyboard. */
+#adrien-dennis .dn-story,
+#adrien-dennis .dn-case {
+  border-radius: 16px;
+  padding-inline: 24px;
+  margin-inline: -24px;
+  transition: background .25s ease, box-shadow .25s ease, transform .25s ease;
+}
+#adrien-dennis .dn-story:focus-visible,
+#adrien-dennis .dn-case:focus-visible {
+  outline: 2px solid var(--dn-accent);
+  outline-offset: 5px;
+}
+#adrien-dennis .dn-story:focus-within,
+#adrien-dennis .dn-case:focus-within {
+  background: color-mix(in srgb, var(--dn-accent) 7%, var(--dn-bg));
+  box-shadow: 0 12px 36px #0000000a;
+}
+@media (hover:hover) and (pointer:fine) {
+  #adrien-dennis .dn-story:hover,
+  #adrien-dennis .dn-case:hover {
+    background: color-mix(in srgb, var(--dn-accent) 7%, var(--dn-bg));
+    box-shadow: 0 12px 36px #0000000a;
+    transform: scale(1.008);
+  }
+}
+#adrien-dennis .dn-tools {display:grid;grid-template-columns:1fr 1fr;gap:30px 32px;margin-top:30px}
+#adrien-dennis .dn-tool {border-top:1px solid var(--dn-line);padding-top:22px}
+#adrien-dennis .dn-tool h3 {font:400 25px/1.3 Outfit,Arial,sans-serif;color:var(--dn-text);margin:0 0 12px}
+#adrien-dennis .dn-tool .dn-tool-tech {font-size:16px;color:var(--dn-accent);margin-bottom:14px;line-height:1.7}
+#adrien-dennis .dn-tool p:last-child {font-size:17px;margin:0}
+#adrien-dennis .dn-case {align-items:center}
+#adrien-dennis .dn-case > div:first-child {align-self:center}
+#adrien-dennis .dn-case-image {display:block;object-fit:contain;max-height:480px}
+#adrien-dennis .dn-case h2 {color:var(--dn-text)}
+#adrien-dennis .dn-case .dn-case-summary {color:var(--dn-text);font-size:21px;line-height:1.6}
+#adrien-dennis .dn-case h3 {color:var(--dn-peach);font-size:20px}
+#adrien-dennis .dn-case .dn-eyebrow {color:var(--dn-accent);font-size:14px;letter-spacing:1.5px}
+#adrien-dennis .dn-contact-grid {align-items:start}
+#adrien-dennis .dn-contact-details > section + section {margin-top:44px;padding-top:32px;border-top:1px solid var(--dn-line)}
+#adrien-dennis .dn-form-panel {padding:30px;border:1px solid var(--dn-line);border-radius:18px;background:color-mix(in srgb,var(--dn-accent) 4%,var(--dn-bg))}
+#adrien-dennis #contact-form {display:grid;gap:12px}
+#adrien-dennis #contact-form label {font-size:17px;margin-top:12px;color:var(--dn-text)}
+#adrien-dennis #contact-form label span {font-size:13px;color:var(--dn-muted)}
+#adrien-dennis #contact-form input,
+#adrien-dennis #contact-form textarea {box-sizing:border-box;width:100%;min-width:0;border:1px solid var(--dn-line);border-radius:10px;padding:15px;background:var(--dn-bg);color:var(--dn-text);font:400 17px/1.6 Manrope,Arial,sans-serif;transition:border-color .2s,background .2s}
+#adrien-dennis #contact-form textarea {resize:vertical;min-height:170px}
+#adrien-dennis #contact-form input::placeholder,
+#adrien-dennis #contact-form textarea::placeholder {color:var(--dn-muted);opacity:.8}
+#adrien-dennis #contact-form input:focus,
+#adrien-dennis #contact-form textarea:focus {outline:2px solid var(--dn-accent);outline-offset:3px;border-color:var(--dn-accent)}
+#adrien-dennis #contact-form button {justify-self:start;margin-top:12px}
+#adrien-dennis #contact-form .dn-form-note {font-size:13px;margin:4px 0 0;line-height:1.6}
+@media(max-width:1000px) {#adrien-dennis .dn-contact-grid {grid-template-columns:1fr;gap:45px}#adrien-dennis .dn-tools {grid-template-columns:1fr}}
+@media(max-width:600px) {
+  #adrien-dennis .dn-story,#adrien-dennis .dn-case {padding-inline:12px;margin-inline:-12px}
+  #adrien-dennis .dn-case-image {max-height:340px}
+  #adrien-dennis .dn-case .dn-case-summary {font-size:19px}
+  #adrien-dennis .dn-form-panel {padding:22px 18px}
+}
+@media(prefers-reduced-motion:reduce) {#adrien-dennis .dn-story:hover,#adrien-dennis .dn-case:hover {transform:none}}
