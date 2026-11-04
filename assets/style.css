@@ -274,3 +274,5 @@ html{scroll-behavior:smooth;background:#102c35}body{margin:0}button,a{-webkit-ta
 /* Separate the introduction action from the project collection. */
 #adrien-dennis .dn-intro {padding-bottom:112px}
 @media(max-width:600px){#adrien-dennis .dn-intro{padding-bottom:80px}}
+
+#adrien-dennis .dn-work-more {display:flex;justify-content:center;margin-top:34px}
