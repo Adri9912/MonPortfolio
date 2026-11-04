@@ -34,11 +34,15 @@ root.addEventListener('pointermove', event => {
   if (event.pointerType === 'touch' || reducedMotion.matches) return;
   cancelAnimationFrame(frame);
   frame = requestAnimationFrame(() => {
+    root.style.setProperty('--dn-pointer-x', event.clientX + 'px');
+    root.style.setProperty('--dn-pointer-y', (event.clientY + scrollY) + 'px');
+    root.style.setProperty('--dn-pointer-visible', '1');
     root.style.setProperty('--dn-name-x', (event.clientX / innerWidth - .5) * 18 + 'px');
     root.style.setProperty('--dn-photo-x', -(event.clientX / innerWidth - .5) * 10 + 'px');
   });
 });
 root.addEventListener('pointerleave', () => {
+  root.style.setProperty('--dn-pointer-visible', '0');
   cancelAnimationFrame(frame);
   root.style.setProperty('--dn-name-x', '0px');
   root.style.setProperty('--dn-photo-x', '0px');
