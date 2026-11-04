@@ -132,8 +132,9 @@ html{scroll-behavior:smooth;background:#102c35}body{margin:0}button,a{-webkit-ta
 #adrien-dennis .dn-case .dn-case-summary {color:var(--dn-text);font-size:21px;line-height:1.6}
 #adrien-dennis .dn-case h3 {color:var(--dn-peach);font-size:20px}
 #adrien-dennis .dn-case .dn-eyebrow {color:var(--dn-accent);font-size:14px;letter-spacing:1.5px}
-#adrien-dennis .dn-contact-grid {align-items:start}
+#adrien-dennis .dn-contact-grid {align-items:stretch}
 #adrien-dennis .dn-contact-details > section + section {margin-top:44px;padding-top:32px;border-top:1px solid var(--dn-line)}
+#adrien-dennis .dn-contact-details,
 #adrien-dennis .dn-form-panel {padding:30px;border:1px solid var(--dn-line);border-radius:18px;background:color-mix(in srgb,var(--dn-accent) 4%,var(--dn-bg))}
 #adrien-dennis #contact-form {display:grid;gap:12px}
 #adrien-dennis #contact-form label {font-size:17px;margin-top:12px;color:var(--dn-text)}
@@ -150,6 +151,7 @@ html{scroll-behavior:smooth;background:#102c35}body{margin:0}button,a{-webkit-ta
 @media(max-width:600px) {
   #adrien-dennis .dn-story,#adrien-dennis .dn-case {padding-inline:12px;margin-inline:-12px}
   #adrien-dennis .dn-case .dn-case-summary {font-size:19px}
+  #adrien-dennis .dn-contact-details,
   #adrien-dennis .dn-form-panel {padding:22px 18px}
 }
 @media(prefers-reduced-motion:reduce) {#adrien-dennis .dn-story:hover,#adrien-dennis .dn-case:hover {transform:none}}
@@ -237,3 +239,14 @@ html{scroll-behavior:smooth;background:#102c35}body{margin:0}button,a{-webkit-ta
 }
 @media(max-width:600px){#adrien-dennis[data-view="images"] .dn-work .dn-project{padding:20px;gap:20px}}
 @media(prefers-reduced-motion:reduce){#adrien-dennis .dn-work .dn-project:is(:hover,:focus-visible),#adrien-dennis .dn-work .dn-project:is(:hover,:focus-visible) > img,#adrien-dennis .dn-work .dn-project:is(:hover,:focus-visible) .dn-project-arrow{transform:none}}
+
+/* Make the full project collection unmistakable on the homepage. */
+#adrien-dennis .dn-all-projects {
+  padding:16px 22px;background:var(--dn-accent);color:var(--dn-bg);border-color:var(--dn-accent);
+  font-size:18px;font-weight:600;gap:14px;min-height:56px;transition:transform .25s ease,box-shadow .25s ease;
+}
+#adrien-dennis .dn-all-projects svg {width:22px;height:22px}
+#adrien-dennis .dn-all-projects:is(:hover,:focus-visible) {transform:translateY(-3px);box-shadow:0 8px 24px #00000020}
+@media(max-width:760px){#adrien-dennis .dn-work-heading{flex-wrap:wrap;gap:18px}}
+@media(max-width:540px){#adrien-dennis .dn-all-projects{width:100%;justify-content:center;font-size:17px;padding:16px}}
+@media(prefers-reduced-motion:reduce){#adrien-dennis .dn-all-projects:is(:hover,:focus-visible){transform:none}}
