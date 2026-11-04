@@ -276,3 +276,9 @@ html{scroll-behavior:smooth;background:#102c35}body{margin:0}button,a{-webkit-ta
 @media(max-width:600px){#adrien-dennis .dn-intro{padding-bottom:80px}}
 
 #adrien-dennis .dn-work-more {display:flex;justify-content:center;margin-top:34px}
+
+/* Strengthen the hero's invitation to explore. */
+#adrien-dennis .dn-explore {width:148px;height:148px;bottom:-58px;font-size:18px;font-weight:600;box-shadow:0 10px 30px #00000026;border:1px solid color-mix(in srgb,var(--dn-accent) 70%,var(--dn-text))}
+#adrien-dennis .dn-explore svg {width:29px;height:29px}
+@media(min-width:1500px){#adrien-dennis .dn-explore{width:164px;height:164px}}
+@media(max-width:600px){#adrien-dennis .dn-explore{width:124px;height:124px;bottom:-62px;font-size:16px}#adrien-dennis .dn-explore svg{width:26px;height:26px}}
