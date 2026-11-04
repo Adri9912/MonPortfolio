@@ -186,3 +186,10 @@ html{scroll-behavior:smooth;background:#102c35}body{margin:0}button,a{-webkit-ta
 #adrien-dennis .dn-location {background:transparent;color:var(--dn-hero-text);border-radius:0;padding:0 0 0 5cqw;gap:9px;font-size:16px;cursor:default}
 #adrien-dennis .dn-location svg {width:22px;height:22px}
 @media(max-width:600px){#adrien-dennis .dn-location{padding-left:6cqw;font-size:14px}#adrien-dennis .dn-location svg{width:19px;height:19px}}
+
+/* Editorial location marker. */
+#adrien-dennis .dn-location {gap:12px;align-items:center}
+#adrien-dennis .dn-location svg {opacity:.7}
+#adrien-dennis .dn-location small {display:block;font-size:14px;line-height:1.5;opacity:.75;margin-bottom:3px}
+#adrien-dennis .dn-location strong {display:block;font-family:Outfit,Arial,sans-serif;font-size:26px;font-weight:400;line-height:1.2;letter-spacing:-.5px}
+@media(max-width:600px){#adrien-dennis .dn-location strong{font-size:22px}#adrien-dennis .dn-location small{font-size:13px}}
