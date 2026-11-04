@@ -47,22 +47,3 @@ root.addEventListener('pointerleave', () => {
   root.style.setProperty('--dn-name-x', '0px');
   root.style.setProperty('--dn-photo-x', '0px');
 });
-
-// One frame per scroll update; the gradients themselves remain static.
-let scrollFrame;
-function updateScrollLights() {
-  if (reducedMotion.matches) return;
-  const distance = Math.max(1, document.documentElement.scrollHeight - innerHeight);
-  const progress = Math.min(1, Math.max(0, scrollY / distance));
-  root.style.setProperty('--dn-halo-offset', scrollY + 'px');
-  root.style.setProperty('--dn-halo-mint', progress * 38 + 'vw');
-  root.style.setProperty('--dn-halo-peach', -progress * 38 + 'vw');
-}
-function scheduleScrollLights() {
-  cancelAnimationFrame(scrollFrame);
-  scrollFrame = requestAnimationFrame(updateScrollLights);
-}
-addEventListener('scroll', scheduleScrollLights, { passive: true });
-addEventListener('resize', scheduleScrollLights);
-reducedMotion.addEventListener('change', scheduleScrollLights);
-updateScrollLights();
