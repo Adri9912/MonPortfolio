@@ -256,3 +256,17 @@ html{scroll-behavior:smooth;background:#102c35}body{margin:0}button,a{-webkit-ta
   background-attachment:fixed;
 }
 #adrien-dennis[data-theme="jour"] {--dn-gradient-end:#d9d8cf}
+
+/* Give the personal introduction the same reading priority as the hero. */
+#adrien-dennis .dn-intro p {
+  font-size:clamp(20px,2vw,23px);line-height:1.75;color:var(--dn-text);margin-bottom:28px;
+}
+#adrien-dennis .dn-intro .dn-about-link {
+  padding:14px 20px;border:1px solid var(--dn-accent);border-radius:32px;
+  color:var(--dn-accent);background:color-mix(in srgb,var(--dn-accent) 8%,transparent);
+  font-size:18px;font-weight:600;line-height:1.5;
+  transition:background .25s ease,color .25s ease,transform .25s ease;
+}
+#adrien-dennis .dn-intro .dn-about-link svg {width:21px;height:21px}
+#adrien-dennis .dn-intro .dn-about-link:is(:hover,:focus-visible) {background:var(--dn-accent);color:var(--dn-bg);transform:translateY(-2px)}
+@media(prefers-reduced-motion:reduce){#adrien-dennis .dn-intro .dn-about-link:is(:hover,:focus-visible){transform:none}}
