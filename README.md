@@ -15,7 +15,7 @@ Ouvrir http://127.0.0.1:4173 . Aucun build ni installation.
 ## Structure
 
 - `index.html` : accueil
-- `projets.html` : les trois projets
+- `projets.html` : les quatre projets
 - `parcours.html` : parcours et technologies
 - `contact.html` : contact, liens sociaux et documents
 - `assets/style.css` : styles partagés et responsive
@@ -27,3 +27,5 @@ HTML, CSS, JavaScript natif. Les polices Outfit et Manrope sont chargées via Go
 Formulaire de contact natif connecté au même endpoint Formspree que le portfolio initial, avec validation du navigateur (nom, e-mail, message). Le traitement et la confirmation après envoi sont assurés par Formspree. Le lien e-mail direct reste disponible.
 
 Vérifier les liens et documents locaux : `python3 check.py`.
+
+L’aperçu Evolift V1 est une capture du site public https://adri9912.github.io/evolift/.
