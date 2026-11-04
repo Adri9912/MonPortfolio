@@ -1,6 +1,6 @@
 # Portfolio V2 — Adrien Calvayrac
 
-Prototype responsive basé sur la dernière maquette validée.
+(https://adri9912.github.io/MonPortfolio/)
 
 ## Démarrer
 
