@@ -212,10 +212,10 @@ html{scroll-behavior:smooth;background:#102c35}body{margin:0}button,a{-webkit-ta
 /* The pointer glow complements the lights driven by scroll. */
 #adrien-dennis .dn-pointer-halo {
   position:absolute;inset:0;z-index:5;pointer-events:none;
-  background:radial-gradient(280px circle at var(--dn-pointer-x,50%) var(--dn-pointer-y,0px),#9edbd226,transparent 75%);
+  background:radial-gradient(140px circle at var(--dn-pointer-x,50%) var(--dn-pointer-y,0px),#9edbd212,transparent 75%);
   opacity:var(--dn-pointer-visible,0);transition:opacity .25s ease;
 }
-#adrien-dennis[data-theme="jour"] .dn-pointer-halo {background:radial-gradient(280px circle at var(--dn-pointer-x,50%) var(--dn-pointer-y,0px),#007b7018,transparent 75%)}
+#adrien-dennis[data-theme="jour"] .dn-pointer-halo {background:radial-gradient(140px circle at var(--dn-pointer-x,50%) var(--dn-pointer-y,0px),#007b700c,transparent 75%)}
 @media(prefers-reduced-motion:reduce){#adrien-dennis .dn-pointer-halo{display:none}}
 
 /* More legible navigation, with room between the enlarged links. */
