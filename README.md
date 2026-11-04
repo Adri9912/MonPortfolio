@@ -1,0 +1,29 @@
+# Portfolio V2 — Adrien Calvayrac
+
+Prototype responsive basé sur la dernière maquette validée.
+
+## Démarrer
+
+Depuis ce dossier :
+
+```sh
+python3 -m http.server 4173 --bind 127.0.0.1
+```
+
+Ouvrir http://127.0.0.1:4173 . Aucun build ni installation.
+
+## Structure
+
+- `index.html` : accueil
+- `projets.html` : les quatre projets
+- `parcours.html` : parcours et technologies
+- `contact.html` : contact, liens sociaux et documents
+- `assets/style.css` : styles partagés et responsive
+- `assets/app.js` : thème mémorisé, menu et mouvements légers
+- `assets/images/` et `documents/` : ressources locales
+
+HTML, CSS, JavaScript natif. Les polices Outfit et Manrope sont chargées via Google Fonts, avec des polices système en secours. Icônes de navigation en SVG intégrées ; icônes sociales reprises du portfolio original (licence dans assets/images).
+
+Contact par lien e-mail ; aucun serveur d’envoi ou formulaire simulé.
+
+Vérifier les liens et documents locaux : `python3 check.py`.
