@@ -198,15 +198,15 @@ html{scroll-behavior:smooth;background:#102c35}body{margin:0}button,a{-webkit-ta
   content:'';position:absolute;width:90vw;height:110vh;top:-10vh;
 }
 #adrien-dennis .dn-halo::before {
-  left:-25vw;background:radial-gradient(ellipse,#67d9c71f,transparent 68%);
+  left:-25vw;background:radial-gradient(ellipse,#67d9c73d,transparent 70%);
   transform:translate3d(var(--dn-halo-mint,0vw),0,0);
 }
 #adrien-dennis .dn-halo::after {
-  right:-30vw;top:5vh;background:radial-gradient(ellipse,#ffc1a815,transparent 68%);
+  right:-30vw;top:5vh;background:radial-gradient(ellipse,#ffc1a82e,transparent 70%);
   transform:translate3d(var(--dn-halo-peach,0vw),0,0);
 }
-#adrien-dennis[data-theme="jour"] .dn-halo::before {background:radial-gradient(ellipse,#007b7021,transparent 68%)}
-#adrien-dennis[data-theme="jour"] .dn-halo::after {background:radial-gradient(ellipse,#d7835521,transparent 68%)}
+#adrien-dennis[data-theme="jour"] .dn-halo::before {background:radial-gradient(ellipse,#007b7030,transparent 70%)}
+#adrien-dennis[data-theme="jour"] .dn-halo::after {background:radial-gradient(ellipse,#d7835530,transparent 70%)}
 @media(prefers-reduced-motion:reduce){#adrien-dennis .dn-halo{display:none}}
 
 /* The pointer glow complements the lights driven by scroll. */
@@ -223,3 +223,10 @@ html{scroll-behavior:smooth;background:#102c35}body{margin:0}button,a{-webkit-ta
 #adrien-dennis .dn-menu nav a {font-size:54px;font-weight:500}
 @media(max-width:1000px){#adrien-dennis .dn-nav{font-size:22px;gap:26px}}
 @media(max-width:540px){#adrien-dennis .dn-menu nav a{font-size:48px}}
+
+/* The hero has its own opaque surface, so it also carries the scroll lights. */
+#adrien-dennis .dn-hero {
+  background-image:
+    radial-gradient(ellipse at calc(10% + var(--dn-halo-mint,0vw)) 30%,#67d9c752,transparent 60%),
+    radial-gradient(ellipse at calc(95% + var(--dn-halo-peach,0vw)) 65%,#ffc1a84a,transparent 60%);
+}
