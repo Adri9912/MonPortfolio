@@ -81,7 +81,7 @@ html{scroll-behavior:smooth;background:#102c35}body{margin:0}button,a{-webkit-ta
 #adrien-dennis .dn-story .dn-eyebrow{margin-top:20px}#adrien-dennis .dn-story h2{margin-top:8px}
 #adrien-dennis .dn-contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:8%;border-top:1px solid var(--dn-line);padding-top:40px}
 #adrien-dennis .dn-contact-grid h2{font-family:Outfit,Arial,sans-serif;font-size:34px;font-weight:400;margin-bottom:22px}
-#adrien-dennis .dn-email{font-size:clamp(19px,2.4vw,32px);color:var(--dn-accent);overflow-wrap:anywhere;border-bottom:1px solid var(--dn-line);padding-bottom:10px;display:inline-block;margin:10px 0 30px}
+#adrien-dennis .dn-email{font-size:clamp(17px,1.6vw,22px);color:var(--dn-accent);overflow-wrap:anywhere;border-bottom:1px solid var(--dn-line);padding-bottom:10px;display:inline-block;margin:10px 0 30px}
 #adrien-dennis .dn-contact-note{padding:28px;border:1px solid var(--dn-line);border-radius:16px;margin-top:30px}
 #adrien-dennis .dn-contact-note p:last-child{margin:0}
 @media(min-width:1500px){#adrien-dennis .dn-role{right:8%;font-size:32px}#adrien-dennis .dn-role small{font-size:17px}#adrien-dennis .dn-explore{width:155px;height:155px}}
@@ -146,7 +146,6 @@ html{scroll-behavior:smooth;background:#102c35}body{margin:0}button,a{-webkit-ta
 #adrien-dennis #contact-form input:focus,
 #adrien-dennis #contact-form textarea:focus {outline:2px solid var(--dn-accent);outline-offset:3px;border-color:var(--dn-accent)}
 #adrien-dennis #contact-form button {justify-self:start;margin-top:12px}
-#adrien-dennis #contact-form .dn-form-note {font-size:13px;margin:4px 0 0;line-height:1.6}
 @media(max-width:1000px) {#adrien-dennis .dn-contact-grid {grid-template-columns:1fr;gap:45px}#adrien-dennis .dn-tools {grid-template-columns:1fr}}
 @media(max-width:600px) {
   #adrien-dennis .dn-story,#adrien-dennis .dn-case {padding-inline:12px;margin-inline:-12px}
