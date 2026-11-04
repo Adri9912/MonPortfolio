@@ -172,12 +172,12 @@ html{scroll-behavior:smooth;background:#102c35}body{margin:0}button,a{-webkit-ta
 #adrien-dennis #portfolio:focus-within {background:color-mix(in srgb,var(--dn-peach) 7%,var(--dn-bg))}
 @media(hover:hover) and (pointer:fine){#adrien-dennis #portfolio:hover{background:color-mix(in srgb,var(--dn-peach) 7%,var(--dn-bg))}}
 
-/* Image-only motion stays inside the shared preview frame. */
-#adrien-dennis .dn-case-visual {overflow:hidden;border-radius:16px;aspect-ratio:16 / 10;background:var(--dn-panel)}
-#adrien-dennis .dn-case-visual .dn-case-image {border-radius:0;transition:transform .45s cubic-bezier(.2,.65,.3,1)}
+/* The complete preview moves together and shows the full screenshot. */
+#adrien-dennis .dn-case-visual {overflow:hidden;border-radius:16px;aspect-ratio:16 / 10;background:var(--dn-panel);transition:transform .45s cubic-bezier(.2,.65,.3,1)}
+#adrien-dennis .dn-case-visual .dn-case-image {height:100%;object-fit:contain;object-position:center;border-radius:0}
 @media(hover:hover) and (pointer:fine) {
-  #adrien-dennis .dn-case-visual:hover .dn-case-image {transform:scale(1.12) rotate(-2deg)}
+  #adrien-dennis .dn-case-visual:hover {transform:scale(1.12) rotate(-2deg)}
 }
 @media(prefers-reduced-motion:reduce) {
-  #adrien-dennis .dn-case-visual:hover .dn-case-image {transform:none}
+  #adrien-dennis .dn-case-visual:hover {transform:none}
 }
