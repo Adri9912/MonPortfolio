@@ -251,8 +251,8 @@ html{scroll-behavior:smooth;background:#102c35}body{margin:0}button,a{-webkit-ta
 
 /* A quiet diagonal gradient, consistent while reading the page. */
 #adrien-dennis {
-  --dn-gradient-end:#17443c;
+  --dn-gradient-end:#173943;
   background-image:linear-gradient(135deg,var(--dn-bg) 0%,var(--dn-gradient-end) 100%);
   background-attachment:fixed;
 }
-#adrien-dennis[data-theme="jour"] {--dn-gradient-end:#ced9cd}
+#adrien-dennis[data-theme="jour"] {--dn-gradient-end:#d9d8cf}
