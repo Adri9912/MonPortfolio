@@ -284,3 +284,15 @@ html{scroll-behavior:smooth;background:#102c35}body{margin:0}button,a{-webkit-ta
 #adrien-dennis .dn-explore svg {width:29px;height:29px}
 @media(min-width:1500px){#adrien-dennis .dn-explore{width:164px;height:164px}}
 @media(max-width:600px){#adrien-dennis .dn-explore{width:124px;height:124px;bottom:-62px;font-size:16px}#adrien-dennis .dn-explore svg{width:26px;height:26px}}
+
+/* Contact et titre des projets sur petit écran. */
+#adrien-dennis .dn-contact-circle {align-content:center;gap:8px;padding:12px;line-height:1.25}
+#adrien-dennis .dn-contact-circle svg {width:26px;height:26px}
+@media(max-width:760px){
+  #adrien-dennis .dn-work-heading {justify-content:center;text-align:center}
+  #adrien-dennis .dn-contact-title {flex-direction:column;align-items:stretch;gap:28px}
+  #adrien-dennis .dn-contact-circle {align-self:center;margin-inline:auto}
+  #adrien-dennis .dn-intro .dn-about-link {display:flex;width:fit-content;margin-inline:auto}
+  #adrien-dennis .dn-all-projects {color:var(--dn-accent);background:color-mix(in srgb,var(--dn-accent) 8%,transparent);border-color:var(--dn-accent)}
+  #adrien-dennis .dn-all-projects:is(:hover,:focus-visible) {background:var(--dn-accent);color:var(--dn-bg)}
+}
