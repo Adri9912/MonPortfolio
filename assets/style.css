@@ -181,3 +181,8 @@ html{scroll-behavior:smooth;background:#102c35}body{margin:0}button,a{-webkit-ta
 @media(prefers-reduced-motion:reduce) {
   #adrien-dennis .dn-case-visual:hover {transform:none}
 }
+
+/* Location is supporting text, with no button-like surface. */
+#adrien-dennis .dn-location {background:transparent;color:var(--dn-hero-text);border-radius:0;padding:0 0 0 5cqw;gap:9px;font-size:16px;cursor:default}
+#adrien-dennis .dn-location svg {width:22px;height:22px}
+@media(max-width:600px){#adrien-dennis .dn-location{padding-left:6cqw;font-size:14px}#adrien-dennis .dn-location svg{width:19px;height:19px}}
