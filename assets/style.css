@@ -270,3 +270,7 @@ html{scroll-behavior:smooth;background:#102c35}body{margin:0}button,a{-webkit-ta
 #adrien-dennis .dn-intro .dn-about-link svg {width:21px;height:21px}
 #adrien-dennis .dn-intro .dn-about-link:is(:hover,:focus-visible) {background:var(--dn-accent);color:var(--dn-bg);transform:translateY(-2px)}
 @media(prefers-reduced-motion:reduce){#adrien-dennis .dn-intro .dn-about-link:is(:hover,:focus-visible){transform:none}}
+
+/* Separate the introduction action from the project collection. */
+#adrien-dennis .dn-intro {padding-bottom:112px}
+@media(max-width:600px){#adrien-dennis .dn-intro{padding-bottom:80px}}
