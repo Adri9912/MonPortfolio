@@ -1,3 +1,5 @@
+@font-face{font-family:Manrope;font-style:normal;font-weight:400 600;font-display:swap;src:url("fonts/manrope-latin.woff2") format("woff2")}
+@font-face{font-family:Outfit;font-style:normal;font-weight:400 500;font-display:swap;src:url("fonts/outfit-latin.woff2") format("woff2")}
 
 #adrien-dennis{--dn-bg:#102c35;--dn-text:#faf7f0;--dn-muted:#bed3d0;--dn-accent:#9edbd2;--dn-peach:#ffc1a8;--dn-line:#bdd6d144;--dn-hero:#92aaa7;--dn-hero-text:#102c35;--dn-panel:#0e252d;position:relative;isolation:isolate;container-type:inline-size;overflow:hidden;background:var(--dn-bg);color:var(--dn-text);font-family:Manrope,Arial,sans-serif;text-align:left}
 #adrien-dennis[data-theme="jour"]{--dn-bg:#e2d9c8;--dn-text:#102c35;--dn-muted:#40565a;--dn-accent:#005f65;--dn-peach:#974126;--dn-line:#173e4147;--dn-hero:#9fb9b0;--dn-panel:#c9d7cd}

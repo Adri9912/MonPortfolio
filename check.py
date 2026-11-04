@@ -15,6 +15,8 @@ class Page(HTMLParser):
         if 'id' in attrs:
             assert attrs['id'] not in self.targets, f"Duplicate id: {attrs['id']}"
             self.targets.add(attrs['id'])
+        if 'srcset' in attrs:
+            self.links.extend(candidate.strip().split()[0] for candidate in attrs['srcset'].split(','))
         for key in ('href', 'src'):
             if key in attrs:
                 self.links.append(attrs[key])
