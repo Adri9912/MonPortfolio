@@ -176,12 +176,17 @@ html{scroll-behavior:smooth;background:#102c35}body{margin:0}button,a{-webkit-ta
 #adrien-dennis .dn-case-visual {overflow:hidden;border-radius:16px;aspect-ratio:16 / 10;background:var(--dn-panel);transition:transform .45s cubic-bezier(.2,.65,.3,1)}
 #adrien-dennis .dn-case-visual .dn-case-image {height:100%;object-fit:contain;object-position:center;border-radius:0}
 @media(min-width:761px) and (hover:hover) and (pointer:fine) {
-  #adrien-dennis .dn-case:hover {transform:scale(1.018)}
-  #adrien-dennis .dn-case:hover .dn-case-visual {transform:scale(1.14) rotate(-2deg)}
+  #adrien-dennis .dn-case:is(:hover,:focus-visible) {
+    transform:translateY(-5px) scale(1.05);
+    box-shadow:0 18px 40px #00000024;
+    border-color:var(--dn-accent);
+    position:relative;z-index:1;
+  }
+  #adrien-dennis .dn-case:is(:hover,:focus-visible) .dn-case-visual {transform:scale(1.10) rotate(-1.5deg)}
 }
 @media(prefers-reduced-motion:reduce) {
-  #adrien-dennis .dn-case:hover,
-  #adrien-dennis .dn-case:hover .dn-case-visual {transform:none}
+  #adrien-dennis .dn-case:is(:hover,:focus-visible),
+  #adrien-dennis .dn-case:is(:hover,:focus-visible) .dn-case-visual {transform:none}
 }
 
 /* Compact location pill. */
