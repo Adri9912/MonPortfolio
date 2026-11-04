@@ -6,7 +6,7 @@ const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 function setTheme(theme) {
   root.dataset.theme = theme;
   themeButton.setAttribute('aria-label', theme === 'nuit' ? 'Passer en mode jour' : 'Passer en mode nuit');
-  document.documentElement.style.background = theme === 'nuit' ? '#102c35' : '#eeeae1';
+  document.documentElement.style.background = theme === 'nuit' ? '#102c35' : '#e2d9c8';
 }
 let theme = 'nuit';
 try { theme = localStorage.getItem('adrien-theme') === 'jour' ? 'jour' : 'nuit'; } catch {}
