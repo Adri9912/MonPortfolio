@@ -163,3 +163,8 @@ html{scroll-behavior:smooth;background:#102c35}body{margin:0}button,a{-webkit-ta
   #adrien-dennis .dn-menu nav a:is(:hover,:focus-visible),
   #adrien-dennis .dn-story:focus-within {transform:none}
 }
+
+/* Small-phone reading and touch targets. */
+#adrien-dennis .dn-socials a {min-height:44px}
+@media(max-width:600px){#adrien-dennis .dn-hero-caption{max-width:50%}}
+@media(max-width:360px){#adrien-dennis .dn-page h1{font-size:44px}}
