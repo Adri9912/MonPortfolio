@@ -210,17 +210,6 @@ html{scroll-behavior:smooth;background:#102c35}body{margin:0}button,a{-webkit-ta
 @media(max-width:1000px){#adrien-dennis .dn-nav{font-size:22px;gap:26px}}
 @media(max-width:540px){#adrien-dennis .dn-menu nav a{font-size:48px}}
 
-/* Fine, static paper grain on the background surfaces. */
-#adrien-dennis,
-#adrien-dennis .dn-hero,
-#adrien-dennis .dn-page-header,
-#adrien-dennis .dn-contact,
-#adrien-dennis .dn-footer {
-  background-image:url("grain.svg");
-  background-size:180px 180px;
-  background-repeat:repeat;
-  background-blend-mode:soft-light;
-}
 
 /* Framed featured projects, with breathing room around complete previews. */
 #adrien-dennis[data-view="images"] .dn-work .dn-project {
