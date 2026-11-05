@@ -296,3 +296,8 @@ html{scroll-behavior:smooth;background:#102c35}body{margin:0}button,a{-webkit-ta
   #adrien-dennis .dn-all-projects {color:var(--dn-accent);background:color-mix(in srgb,var(--dn-accent) 8%,transparent);border-color:var(--dn-accent)}
   #adrien-dennis .dn-all-projects:is(:hover,:focus-visible) {background:var(--dn-accent);color:var(--dn-bg)}
 }
+
+/* Remplir les cadres des captures au format portrait. */
+#adrien-dennis .dn-case-image.dn-preview-fill,
+#adrien-dennis .dn-work .dn-project > img.dn-preview-fill {object-fit:cover;object-position:center top}
+#adrien-dennis #portfolio .dn-case-image {object-position:center 32%}
