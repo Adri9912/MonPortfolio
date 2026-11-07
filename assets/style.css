@@ -349,3 +349,126 @@ html{scroll-behavior:smooth;background:#102c35}body{margin:0}button,a{-webkit-ta
 @media(prefers-reduced-motion:reduce){#adrien-dennis .dn-case:is(:hover,:focus-visible) .dn-case-image,#adrien-dennis .dn-work .dn-project:is(:hover,:focus-visible),#adrien-dennis .dn-work .dn-project:is(:hover,:focus-visible)>img {transform:none}}
 
 #adrien-dennis .dn-project-index a[aria-current="location"] {background:var(--dn-accent);color:var(--dn-bg)}
+
+/* The menu travels as one sheet; its content is never sliced by a mask. */
+#adrien-dennis .dn-menu {clip-path:none}
+#adrien-dennis .dn-menu::backdrop {opacity:1;backdrop-filter:none;transition:opacity 240ms ease}
+#adrien-dennis .dn-menu[data-animated="true"]::backdrop {animation:dn-menu-backdrop-in 240ms ease both}
+#adrien-dennis .dn-menu[data-closing="true"]::backdrop {animation:none;opacity:0}
+@keyframes dn-menu-backdrop-in {from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){#adrien-dennis .dn-menu::backdrop {animation:none!important;transition:none}}
+
+/* Keep the document and its toggle still; only the sheet moves. */
+html {scrollbar-gutter:stable}
+#adrien-dennis .dn-menu {padding:0;overflow:visible;background:transparent;box-shadow:none;transform:none}
+#adrien-dennis .dn-menu-sheet {
+  display:flex;flex-direction:column;justify-content:center;justify-content:safe center;
+  height:100%;overflow-y:auto;overscroll-behavior:contain;box-sizing:border-box;
+  padding:90px clamp(24px,6vw,86px);background:var(--dn-panel);color:var(--dn-text);
+  box-shadow:-24px 0 64px #071b2426;
+}
+#adrien-dennis .dn-menu .dn-close {right:auto;z-index:2;transform:none;transition:background-color .15s}
+@media(max-width:760px){#adrien-dennis .dn-menu {width:100%}#adrien-dennis .dn-menu-sheet {padding:90px 7% 40px}}
+#adrien-dennis .dn-menu-button,
+#adrien-dennis .dn-menu-button:hover,
+#adrien-dennis .dn-menu .dn-close,
+#adrien-dennis .dn-menu .dn-close:active {transform:none!important;transition:background-color .15s}
+
+/* The dropdown starts below the header; its toggle remains in the header. */
+#adrien-dennis .dn-menu {inset:0;width:100%;max-width:100%}
+#adrien-dennis .dn-menu-window {position:absolute;inset:var(--dn-menu-top,104px) 0 0;overflow:hidden}
+#adrien-dennis .dn-menu-sheet {padding:48px clamp(24px,6vw,86px);box-shadow:none}
+#adrien-dennis .dn-menu-sheet > .dn-label,
+#adrien-dennis .dn-menu-sheet nav,
+#adrien-dennis .dn-menu-sheet .dn-menu-socials {width:min(540px,100%);margin-inline:auto}
+#adrien-dennis .dn-menu::backdrop {background:transparent;animation:none!important;opacity:1;transition:none}
+#adrien-dennis .dn-menu .dn-close {background:var(--dn-hero-text);color:#faf7f0}
+/* Full-preview rotation and card zoom, with room between projects. */
+#adrien-dennis .dn-case {margin-block:24px 48px;transition:transform 300ms var(--dn-motion-out),background-color 200ms ease}
+#adrien-dennis .dn-case .dn-case-visual {transition:transform 320ms var(--dn-motion-out)}
+#adrien-dennis[data-view="images"] .dn-work .dn-project {margin-bottom:32px}
+@media(min-width:761px) and (hover:hover) and (pointer:fine){
+  #adrien-dennis .dn-case:is(:hover,:focus-visible) {transform:translateY(-4px) scale(1.05);z-index:1}
+  #adrien-dennis .dn-case:is(:hover,:focus-visible) .dn-case-visual {transform:scale(1.10) rotate(-1.5deg)}
+  #adrien-dennis .dn-case:is(:hover,:focus-visible) .dn-case-image {transform:none}
+  #adrien-dennis .dn-work .dn-project:is(:hover,:focus-visible) {transform:translateY(-4px) scale(1.05);z-index:1}
+  #adrien-dennis .dn-work .dn-project:is(:hover,:focus-visible)>img {transform:scale(1.10) rotate(-1.5deg)}
+}
+@media(max-width:760px){
+  #adrien-dennis .dn-case {margin-block:20px 40px}
+  #adrien-dennis .dn-case.is-reading {transform:scale(1.025)}
+  #adrien-dennis .dn-case.is-reading .dn-case-visual {transform:scale(1.055)}
+  #adrien-dennis .dn-case.is-reading .dn-case-image {transform:none}
+}
+#adrien-dennis .dn-project-index {padding:16px;gap:10px 12px;border:1px solid var(--dn-line);border-radius:24px;background:var(--dn-bg);background:color-mix(in srgb,var(--dn-bg) 78%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+#adrien-dennis .dn-project-index-label {grid-column:1/-1;font-size:15px;line-height:1.5;color:var(--dn-muted);text-align:center;margin:0}
+#adrien-dennis .dn-project-index a {border:1px solid var(--dn-line);border-radius:24px;background:var(--dn-panel)}
+#adrien-dennis .dn-case {scroll-margin-top:140px}
+@media(max-width:760px){
+  #adrien-dennis .dn-project-index {gap:8px;padding:12px;border-radius:22px}
+  #adrien-dennis .dn-project-index-label {font-size:14px}
+  #adrien-dennis .dn-case {scroll-margin-top:172px}
+}
+@media(prefers-reduced-motion:reduce){
+  #adrien-dennis .dn-case:is(:hover,:focus-visible),
+  #adrien-dennis .dn-case:is(:hover,:focus-visible) .dn-case-visual,
+  #adrien-dennis .dn-case:is(:hover,:focus-visible) .dn-case-image,
+  #adrien-dennis .dn-work .dn-project:is(:hover,:focus-visible),
+  #adrien-dennis .dn-work .dn-project:is(:hover,:focus-visible)>img,
+  #adrien-dennis .dn-case.is-reading,
+  #adrien-dennis .dn-case.is-reading .dn-case-visual,
+  #adrien-dennis .dn-case.is-reading .dn-case-image {transform:none!important}
+}
+
+/* Project shortcuts use the real previews to make each destination recognizable. */
+#adrien-dennis .dn-project-index-label {font-family:Outfit,Arial,sans-serif;font-size:19px;color:var(--dn-text);text-align:left;margin-bottom:4px}
+#adrien-dennis .dn-project-index a {justify-content:flex-start;gap:12px;padding:12px;border-radius:12px;text-align:left;font-weight:600;transition:transform 200ms var(--dn-motion-out),background-color 150ms,color 150ms,border-color 150ms}
+#adrien-dennis .dn-project-index a img {width:48px;height:40px;border-radius:6px;object-fit:cover;flex-shrink:0}
+#adrien-dennis .dn-project-index a[aria-current="location"] {border-color:var(--dn-accent)}
+@media(hover:hover) and (pointer:fine){#adrien-dennis .dn-project-index a:hover {transform:translateY(-3px);border-color:var(--dn-accent)}}
+@media(min-width:761px){
+ #adrien-dennis .dn-contact .dn-contact-title {flex-direction:row;justify-content:space-between;text-align:left}
+ #adrien-dennis .dn-contact .dn-contact-title h2 {width:auto;text-align:left;flex:1}
+ #adrien-dennis .dn-contact .dn-contact-circle {margin:0}
+ #adrien-dennis .dn-case {scroll-margin-top:184px}
+}
+@media(max-width:760px){
+ #adrien-dennis .dn-project-index a {gap:8px;padding:10px;font-size:14px}
+ #adrien-dennis .dn-project-index a img {width:34px;height:32px}
+ #adrien-dennis .dn-project-index-label {font-size:17px;margin-bottom:2px}
+ #adrien-dennis .dn-case {scroll-margin-top:208px}
+}
+@media(prefers-reduced-motion:reduce){#adrien-dennis .dn-project-index a {transition:none}#adrien-dennis .dn-project-index a:hover {transform:none}}
+
+/* Recruiter essentials and a compact mobile project navigator. */
+#adrien-dennis .dn-skills-summary {max-width:850px;margin:0 0 48px;padding-bottom:28px;border-bottom:1px solid var(--dn-line)}
+#adrien-dennis .dn-skills-summary h2 {font-family:Outfit,Arial,sans-serif;font-size:28px;font-weight:400;margin-bottom:12px}
+#adrien-dennis .dn-skills-summary p {font-size:18px;line-height:1.8;color:var(--dn-muted)}
+#adrien-dennis .dn-project-index {display:block}
+#adrien-dennis .dn-project-index-label {margin-bottom:12px}
+#adrien-dennis .dn-index-links {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+#adrien-dennis .dn-index-compact {display:none}
+@media(max-width:760px){
+ #adrien-dennis .dn-index-links {grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ #adrien-dennis .dn-project-index.is-compact {height:70px;margin-bottom:calc(32px + var(--dn-index-extra,120px))}
+ #adrien-dennis .is-compact .dn-project-index-label {display:none}
+ #adrien-dennis .is-compact .dn-index-compact {display:flex;align-items:center;justify-content:space-between;gap:6px;height:44px}
+ #adrien-dennis .dn-index-current {font-family:Outfit,Arial,sans-serif;font-size:16px;line-height:1.2;min-width:0}
+ #adrien-dennis .dn-index-toggle {display:flex;align-items:center;gap:4px;min-height:44px;padding:6px 8px;border:1px solid var(--dn-line);border-radius:12px;background:var(--dn-panel);color:var(--dn-text);font-size:12px;flex-shrink:0}
+ #adrien-dennis .dn-index-toggle svg {width:16px;height:16px}
+ #adrien-dennis .is-compact .dn-index-links {display:none}
+ #adrien-dennis .is-compact.is-expanded .dn-index-links {display:grid;position:absolute;top:calc(100% + 8px);left:0;right:0;padding:12px;border:1px solid var(--dn-line);border-radius:20px;background:var(--dn-bg)}
+ #adrien-dennis .dn-case {scroll-margin-top:110px}
+}
+
+@media(max-width:760px){#adrien-dennis .dn-case:is(:hover,:focus-visible) .dn-case-visual {transform:scale(1.055)}#adrien-dennis .dn-work .dn-project:is(:hover,:focus-visible)>img {transform:scale(1.03)}}
+
+/* On desktop the reading position gives one project a gentle emphasis. */
+@media(min-width:761px){
+ #adrien-dennis .dn-case.is-reading:not(:hover):not(:focus-visible) {transform:scale(1.025);border-color:var(--dn-accent)}
+ #adrien-dennis .dn-case.is-reading:not(:hover):not(:focus-visible) .dn-case-visual {transform:scale(1.055)}
+}
+@media(min-width:761px){
+ #adrien-dennis .dn-case:not(.is-reading):not(:hover) {transform:none}
+ #adrien-dennis .dn-case:not(.is-reading):not(:hover) .dn-case-visual {transform:none}
+}

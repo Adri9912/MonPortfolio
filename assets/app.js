@@ -1,6 +1,20 @@
 const root = document.getElementById('adrien-dennis');
 const menu = document.getElementById('dn-menu');
 const menuButton = root.querySelector('.dn-menu-button');
+const menuSheet = menu.querySelector('.dn-menu-sheet');
+const closeButton = menu.querySelector('.dn-close');
+function alignMenuToggle() {
+  if (!menu.open) return;
+  const trigger = menuButton.getBoundingClientRect();
+  const panel = menu.getBoundingClientRect();
+  const header = menuButton.closest('header').getBoundingClientRect();
+  menu.style.setProperty('--dn-menu-top', Math.max(0, header.bottom) + 'px');
+  closeButton.style.left = (trigger.left - panel.left) + 'px';
+  closeButton.style.top = (trigger.top - panel.top) + 'px';
+  closeButton.style.width = trigger.width + 'px';
+  closeButton.style.height = trigger.height + 'px';
+}
+addEventListener('resize', alignMenuToggle);
 const themeButton = root.querySelector('.dn-theme');
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 function setTheme(theme) {
@@ -24,36 +38,41 @@ function stopMenuMotion() {
 }
 function closeMenu(animate = false) {
   if (!menu.open) return;
-  const style = getComputedStyle(menu);
+  const style = getComputedStyle(menuSheet);
   const start = {
-    clipPath: style.clipPath === 'none' ? 'inset(0 0 0 0)' : style.clipPath,
     transform: style.transform,
     opacity: style.opacity
   };
   stopMenuMotion();
   if (!animate || reducedMotion.matches) { menu.close(); return; }
-  menuMotion = menu.animate([
+  menu.dataset.closing = 'true';
+  menuMotion = menuSheet.animate([
     start,
-    { clipPath: 'inset(0 0 100% 0)', transform: 'translateY(-12px)', opacity: 0 }
-  ], { duration: 240, easing: menuEase });
+    { transform: 'translateY(-100%)', opacity: 1 }
+  ], { duration: 320, easing: menuEase });
   menuMotion.finished.then(() => menu.close(), () => {});
 }
 menuButton.addEventListener('click', event => {
   stopMenuMotion();
+  menu.dataset.animated = String(!reducedMotion.matches && event.detail > 0);
+  delete menu.dataset.closing;
+  cancelAnimationFrame(frame);
   if (!menu.open) menu.showModal();
+  alignMenuToggle();
   menuButton.setAttribute('aria-expanded', 'true');
   if (!reducedMotion.matches && event.detail > 0) {
-    menuMotion = menu.animate([
-      { clipPath: 'inset(0 0 100% 0)', transform: 'translateY(-12px)', opacity: .7 },
-      { clipPath: 'inset(0 0 0 0)', transform: 'translateY(0)', opacity: 1 }
-    ], { duration: 420, easing: menuEase });
+    menuMotion = menuSheet.animate([
+      { transform: 'translateY(-100%)' },
+      { transform: 'translateY(0)' }
+    ], { duration: 480, easing: menuEase });
   }
 });
-root.querySelector('.dn-close').addEventListener('click', event => closeMenu(event.detail > 0));
+closeButton.addEventListener('click', event => closeMenu(event.detail > 0));
 menu.addEventListener('close', () => {
   stopMenuMotion();
+  delete menu.dataset.closing;
   menuButton.setAttribute('aria-expanded', 'false');
-  menuButton.focus();
+  menuButton.focus({ preventScroll: true });
 });
 menu.addEventListener('click', event => {
   if (event.target === menu && event.clientX < menu.getBoundingClientRect().left) closeMenu(true);
@@ -63,7 +82,7 @@ root.querySelectorAll('a[href^="#"]').forEach(link => link.addEventListener('cli
 }));
 let frame;
 root.addEventListener('pointermove', event => {
-  if (event.pointerType === 'touch' || reducedMotion.matches) return;
+  if (menu.open || event.pointerType === 'touch' || reducedMotion.matches) return;
   cancelAnimationFrame(frame);
   frame = requestAnimationFrame(() => {
     root.style.setProperty('--dn-pointer-x', event.clientX + 'px');
@@ -74,36 +93,43 @@ root.addEventListener('pointermove', event => {
   });
 });
 root.addEventListener('pointerleave', () => {
+  if (menu.open) return;
   root.style.setProperty('--dn-pointer-visible', '0');
   cancelAnimationFrame(frame);
   root.style.setProperty('--dn-name-x', '0px');
   root.style.setProperty('--dn-photo-x', '0px');
 });
 
-// One project follows the reading position on narrow screens; nothing is hidden.
+// Reading position is independent from animation preferences.
 const mobileProjects = matchMedia('(max-width: 760px)');
 const projects = [...root.querySelectorAll('.dn-case')];
+const projectIndex = root.querySelector('.dn-project-index');
+const indexMarker = root.querySelector('.dn-index-marker');
+const indexToggle = root.querySelector('.dn-index-toggle');
 let projectFrame;
-let activeProject = null;
+function closeProjectIndex() {
+  projectIndex.classList.remove('is-expanded');
+  indexToggle.setAttribute('aria-expanded', 'false');
+}
 function updateProjectFocus() {
   projectFrame = null;
-  let next = null;
-  let nearest = Infinity;
-  if (mobileProjects.matches && !reducedMotion.matches) {
-    const readingLine = innerHeight * .45;
-    for (const project of projects) {
-      const rect = project.getBoundingClientRect();
-      if (rect.bottom < innerHeight * .2 || rect.top > innerHeight * .8) continue;
-      const distance = Math.max(rect.top - readingLine, readingLine - rect.bottom, 0);
-      if (distance < nearest) { nearest = distance; next = project; }
-    }
+  const compact = mobileProjects.matches && indexMarker.getBoundingClientRect().top <= 8;
+  if (!projectIndex.classList.contains('is-compact')) {
+    projectIndex.style.setProperty('--dn-index-extra', Math.max(0, projectIndex.offsetHeight - 70) + 'px');
   }
-  if (next === activeProject) return;
-  if (activeProject) activeProject.classList.remove('is-reading');
-  activeProject = next;
-  if (activeProject) activeProject.classList.add('is-reading');
-  root.querySelectorAll('.dn-project-index a').forEach(link => {
-    if (activeProject && link.hash === '#' + activeProject.id) link.setAttribute('aria-current', 'location');
+  if (!compact) closeProjectIndex();
+  projectIndex.classList.toggle('is-compact', compact);
+  const readingLine = Math.max(innerHeight * .4, projectIndex.getBoundingClientRect().bottom + 30);
+  let active = projects[0];
+  for (const project of projects) {
+    if (project.getBoundingClientRect().top <= readingLine) active = project;
+  }
+  for (const project of projects) {
+    project.classList.toggle('is-reading', project === active && !reducedMotion.matches);
+  }
+  projectIndex.querySelector('.dn-index-current').textContent = active.querySelector('h2').textContent;
+  projectIndex.querySelectorAll('a').forEach(link => {
+    if (link.hash === '#' + active.id) link.setAttribute('aria-current', 'location');
     else link.removeAttribute('aria-current');
   });
 }
@@ -111,6 +137,20 @@ function scheduleProjectFocus() {
   if (!projectFrame) projectFrame = requestAnimationFrame(updateProjectFocus);
 }
 if (projects.length) {
+  indexToggle.addEventListener('click', () => {
+    const expanded = indexToggle.getAttribute('aria-expanded') !== 'true';
+    projectIndex.classList.toggle('is-expanded', expanded);
+    indexToggle.setAttribute('aria-expanded', String(expanded));
+  });
+  projectIndex.addEventListener('keydown', event => {
+    if (event.key === 'Escape') { closeProjectIndex(); indexToggle.focus(); }
+  });
+  projectIndex.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    if (projectIndex.classList.contains('is-compact')) {
+      closeProjectIndex();
+      document.getElementById(link.hash.slice(1)).focus({ preventScroll: true });
+    }
+  }));
   addEventListener('scroll', scheduleProjectFocus, { passive: true });
   addEventListener('resize', scheduleProjectFocus);
   mobileProjects.addEventListener('change', scheduleProjectFocus);
