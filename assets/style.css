@@ -218,7 +218,7 @@ html{scroll-behavior:smooth;background:#102c35}body{margin:0}button,a{-webkit-ta
   border:1px solid var(--dn-line);border-radius:16px;padding:24px 22px;margin-bottom:18px;gap:30px;
   transition:transform .3s ease,background .3s ease,border-color .3s ease,box-shadow .3s ease;
 }
-#adrien-dennis .dn-work .dn-project > img {object-fit:contain;object-position:center;background:var(--dn-panel);border:1px solid var(--dn-line);border-radius:10px}
+#adrien-dennis .dn-work .dn-project > img {object-fit:cover;object-position:center;background:var(--dn-panel);border:1px solid var(--dn-line);border-radius:10px}
 @media(min-width:761px) and (hover:hover) and (pointer:fine) {
   #adrien-dennis .dn-work .dn-project:is(:hover,:focus-visible) {
     transform:translateY(-5px) scale(1.05);border-color:var(--dn-accent);z-index:1;
@@ -297,7 +297,20 @@ html{scroll-behavior:smooth;background:#102c35}body{margin:0}button,a{-webkit-ta
   #adrien-dennis .dn-all-projects:is(:hover,:focus-visible) {background:var(--dn-accent);color:var(--dn-bg)}
 }
 
-/* Remplir les cadres des captures au format portrait. */
-#adrien-dennis .dn-case-image.dn-preview-fill,
-#adrien-dennis .dn-work .dn-project > img.dn-preview-fill {object-fit:cover;object-position:center top}
-#adrien-dennis #portfolio .dn-case-image {object-position:center 32%}
+/* Mobile reading focus: a single active project, with no layout change. */
+#adrien-dennis {--dn-motion-out:cubic-bezier(.23,1,.32,1)}
+@media(max-width:760px){
+  #adrien-dennis .dn-case {position:relative;transition:transform 240ms var(--dn-motion-out),background-color 200ms ease}
+  #adrien-dennis .dn-case::before {content:"";position:absolute;inset:0;pointer-events:none;border:1px solid var(--dn-accent);border-radius:16px;opacity:0;transition:opacity 200ms ease}
+  #adrien-dennis .dn-case .dn-case-visual {transform:none;transition:none}
+  #adrien-dennis .dn-case .dn-case-image {transition:transform 240ms var(--dn-motion-out)}
+  #adrien-dennis .dn-case.is-reading {transform:scale(1.012);background:color-mix(in srgb,var(--dn-accent) 6%,var(--dn-bg))}
+  #adrien-dennis .dn-case.is-reading::before {opacity:.65}
+  #adrien-dennis .dn-case.is-reading .dn-case-image {transform:scale(1.045)}
+}
+#adrien-dennis .dn-menu {overflow-y:auto;overscroll-behavior:contain}
+#adrien-dennis .dn-close:active {transform:scale(.97)}
+@media(prefers-reduced-motion:reduce){
+  #adrien-dennis .dn-case.is-reading,#adrien-dennis .dn-case.is-reading .dn-case-image,#adrien-dennis .dn-close:active {transform:none}
+  #adrien-dennis .dn-case.is-reading::before {opacity:0}
+}
