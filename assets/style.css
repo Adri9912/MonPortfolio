@@ -472,3 +472,18 @@ html {scrollbar-gutter:stable}
  #adrien-dennis .dn-case:not(.is-reading):not(:hover) {transform:none}
  #adrien-dennis .dn-case:not(.is-reading):not(:hover) .dn-case-visual {transform:none}
 }
+
+/* Keep the exploration CTA within short desktop viewports. */
+@media(min-width:901px) and (max-height:800px){
+ #adrien-dennis .dn-hero {min-height:620px;height:100svh}
+ #adrien-dennis .dn-explore {bottom:24px}
+ #adrien-dennis h1 {bottom:210px}
+ #adrien-dennis .dn-role {top:170px}
+}
+@media(max-width:760px){
+ #adrien-dennis .dn-case {padding-block:26px;gap:22px}
+ #adrien-dennis .dn-case p {margin-bottom:16px}
+ #adrien-dennis .dn-case h3 {margin-top:20px}
+}
+
+@media(min-width:901px) and (max-height:700px){#adrien-dennis .dn-role {top:120px;font-size:22px}#adrien-dennis .dn-role small {font-size:12px}}
