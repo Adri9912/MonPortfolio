@@ -304,7 +304,7 @@ html{scroll-behavior:smooth;background:#102c35}body{margin:0}button,a{-webkit-ta
   #adrien-dennis .dn-case::before {content:"";position:absolute;inset:0;pointer-events:none;border:1px solid var(--dn-accent);border-radius:16px;opacity:0;transition:opacity 200ms ease}
   #adrien-dennis .dn-case .dn-case-visual {transform:none;transition:none}
   #adrien-dennis .dn-case .dn-case-image {transition:transform 240ms var(--dn-motion-out)}
-  #adrien-dennis .dn-case.is-reading {transform:scale(1.012);background:color-mix(in srgb,var(--dn-accent) 6%,var(--dn-bg))}
+  #adrien-dennis .dn-case.is-reading {transform:none;background:color-mix(in srgb,var(--dn-accent) 6%,var(--dn-bg))}
   #adrien-dennis .dn-case.is-reading::before {opacity:.65}
   #adrien-dennis .dn-case.is-reading .dn-case-image {transform:scale(1.045)}
 }
@@ -314,3 +314,38 @@ html{scroll-behavior:smooth;background:#102c35}body{margin:0}button,a{-webkit-ta
   #adrien-dennis .dn-case.is-reading,#adrien-dennis .dn-case.is-reading .dn-case-image,#adrien-dennis .dn-close:active {transform:none}
   #adrien-dennis .dn-case.is-reading::before {opacity:0}
 }
+
+/* Keep the zoom inside the preview; the reading area never grows. */
+@media(hover:hover) and (pointer:fine){
+  #adrien-dennis .dn-case:is(:hover,:focus-visible) {transform:none;box-shadow:none}
+  #adrien-dennis .dn-case:is(:hover,:focus-visible) .dn-case-visual {transform:none}
+  #adrien-dennis .dn-case:is(:hover,:focus-visible) .dn-case-image {transform:scale(1.045);transition:transform 240ms var(--dn-motion-out)}
+  #adrien-dennis .dn-work .dn-project:is(:hover,:focus-visible) {transform:translateY(-2px);box-shadow:none}
+  #adrien-dennis .dn-work .dn-project:is(:hover,:focus-visible) > img {transform:scale(1.03)}
+}
+#adrien-dennis .dn-contact-title {flex-direction:column;align-items:center;text-align:center}
+#adrien-dennis .dn-contact-title h2 {width:100%;text-align:center}
+#adrien-dennis .dn-contact-circle {margin-inline:auto}
+#adrien-dennis #contact-form button {justify-self:center;text-align:center}
+#adrien-dennis .dn-form-intro {margin-bottom:28px}
+/* A compact project index stays reachable while the reader explores the page. */
+#adrien-dennis:has(.dn-project-index) {overflow:clip}
+#adrien-dennis .dn-project-index {
+  position:sticky;top:12px;z-index:6;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:8px;padding:10px;margin-bottom:32px;border:1px solid var(--dn-line);border-radius:12px;background:var(--dn-panel);
+}
+#adrien-dennis .dn-project-index a {
+  display:flex;align-items:center;justify-content:center;min-height:44px;padding:10px 12px;
+  border-radius:8px;text-align:center;font-size:15px;line-height:1.4;transition:background-color .15s,color .15s;
+}
+#adrien-dennis .dn-project-index a:focus-visible {outline-offset:0}
+#adrien-dennis .dn-case {scroll-margin-top:110px}
+@media(hover:hover) and (pointer:fine){#adrien-dennis .dn-project-index a:hover {background:var(--dn-accent);color:var(--dn-bg)}}
+@media(max-width:760px){
+  #adrien-dennis .dn-project-index {grid-template-columns:repeat(2,minmax(0,1fr));gap:4px;padding:6px;top:8px}
+  #adrien-dennis .dn-project-index a {font-size:14px;padding:8px}
+  #adrien-dennis .dn-case {scroll-margin-top:132px}
+}
+@media(prefers-reduced-motion:reduce){#adrien-dennis .dn-case:is(:hover,:focus-visible) .dn-case-image,#adrien-dennis .dn-work .dn-project:is(:hover,:focus-visible),#adrien-dennis .dn-work .dn-project:is(:hover,:focus-visible)>img {transform:none}}
+
+#adrien-dennis .dn-project-index a[aria-current="location"] {background:var(--dn-accent);color:var(--dn-bg)}

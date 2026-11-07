@@ -23,13 +23,19 @@ function stopMenuMotion() {
   menuMotion = null;
 }
 function closeMenu(animate = false) {
-  stopMenuMotion();
   if (!menu.open) return;
+  const style = getComputedStyle(menu);
+  const start = {
+    clipPath: style.clipPath === 'none' ? 'inset(0 0 0 0)' : style.clipPath,
+    transform: style.transform,
+    opacity: style.opacity
+  };
+  stopMenuMotion();
   if (!animate || reducedMotion.matches) { menu.close(); return; }
   menuMotion = menu.animate([
-    { clipPath: 'inset(0 0 0 0)', opacity: 1 },
-    { clipPath: 'inset(0 0 100% 0)', opacity: 0 }
-  ], { duration: 160, easing: menuEase });
+    start,
+    { clipPath: 'inset(0 0 100% 0)', transform: 'translateY(-12px)', opacity: 0 }
+  ], { duration: 240, easing: menuEase });
   menuMotion.finished.then(() => menu.close(), () => {});
 }
 menuButton.addEventListener('click', event => {
@@ -40,7 +46,7 @@ menuButton.addEventListener('click', event => {
     menuMotion = menu.animate([
       { clipPath: 'inset(0 0 100% 0)', transform: 'translateY(-12px)', opacity: .7 },
       { clipPath: 'inset(0 0 0 0)', transform: 'translateY(0)', opacity: 1 }
-    ], { duration: 280, easing: menuEase });
+    ], { duration: 420, easing: menuEase });
   }
 });
 root.querySelector('.dn-close').addEventListener('click', event => closeMenu(event.detail > 0));
@@ -96,6 +102,10 @@ function updateProjectFocus() {
   if (activeProject) activeProject.classList.remove('is-reading');
   activeProject = next;
   if (activeProject) activeProject.classList.add('is-reading');
+  root.querySelectorAll('.dn-project-index a').forEach(link => {
+    if (activeProject && link.hash === '#' + activeProject.id) link.setAttribute('aria-current', 'location');
+    else link.removeAttribute('aria-current');
+  });
 }
 function scheduleProjectFocus() {
   if (!projectFrame) projectFrame = requestAnimationFrame(updateProjectFocus);
