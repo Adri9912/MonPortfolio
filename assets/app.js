@@ -75,7 +75,7 @@ menu.addEventListener('close', () => {
   menuButton.focus({ preventScroll: true });
 });
 menu.addEventListener('click', event => {
-  if (event.target === menu && event.clientX < menu.getBoundingClientRect().left) closeMenu(true);
+  if (event.target === menu) closeMenu(true);
 });
 root.querySelectorAll('a[href^="#"]').forEach(link => link.addEventListener('click', () => {
   if (menu.open) menu.close();
