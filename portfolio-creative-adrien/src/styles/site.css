@@ -153,6 +153,24 @@ dialog::backdrop { background: #11120fe0; }
 }
 
 .hero { display: grid; grid-template-rows: 1fr auto; min-height: calc(100svh - var(--header-offset)); padding-top: 22px; }
+/* Keep the glow inside its own layer, behind the portrait and text. */
+.hero-stage::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 26% 58%, color-mix(in srgb, var(--page-accent) 16%, transparent), transparent 58%);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-stage::before { animation: hero-glow 4.8s ease-out both; }
+  @keyframes hero-glow {
+    from { opacity: 0; transform: translateX(-3%) scale(.92); }
+    55% { opacity: 1; }
+    to { opacity: .75; transform: none; }
+  }
+}
+
 .hero-stage { position: relative; isolation: isolate; display: flex; align-items: center; min-height: 550px; }
 .hero-visual { position: absolute; z-index: -1; inset: 0 0 0 auto; width: 64%; overflow: hidden; background: var(--panel); }
 .hero-visual::after {
@@ -440,4 +458,40 @@ dialog::backdrop { background: #11120fe0; }
 @media (max-width: 680px) {
   .contact-page-grid { grid-template-columns: minmax(0, 1fr); }
   .contact-page h1 { font-size: clamp(3.3rem, 12vw, 5rem); }
+}
+
+/* A soft glow follows the reading rhythm without moving the section itself. */
+:is(.story, .work, .gallery, .skills, .contact) {
+  position: relative;
+  isolation: isolate;
+  --section-glow: 16%;
+}
+
+.story { --section-glow: 6%; }
+.gallery { --section-glow: 8%; }
+.contact { --section-glow: 12%; }
+
+:is(.story, .work, .gallery, .skills, .contact)::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 74% 48%,
+    color-mix(in srgb, var(--page-accent) var(--section-glow), transparent), transparent 62%);
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    :is(.story, .work, .gallery, .skills, .contact)::before {
+      animation: section-glow linear both;
+      animation-timeline: view();
+    }
+
+    @keyframes section-glow {
+      0% { opacity: 0; transform: translateX(-3%) scale(.93); }
+      35%, 65% { opacity: 1; }
+      100% { opacity: 0; transform: translateX(3%) scale(.93); }
+    }
+  }
 }
