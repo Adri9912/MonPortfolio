@@ -10,31 +10,36 @@ export function usePortfolioMotion(root) {
     const media = gsap.matchMedia();
 
     media.add('(prefers-reduced-motion: no-preference)', () => {
+      const replay = { start: 'top bottom', end: 'bottom top', toggleActions: 'restart reset restart reset' };
+      const [hero] = select('.hero');
       const [firstName, lastName] = select('[data-opening-line]');
-      const opening = gsap.timeline({ defaults: { ease: 'power3.out' } });
+      const opening = gsap.timeline({
+        defaults: { ease: 'power3.out' },
+        scrollTrigger: { ...replay, trigger: hero },
+      });
 
       opening
         .from(select('[data-opening-image]'), {
-          clipPath: 'inset(0 0 100% 0)', duration: 0.88, clearProps: 'clipPath',
+          clipPath: 'inset(0 0 100% 0)', duration: 0.88,
         }, 0)
-        .from(firstName, { yPercent: 105, duration: 0.68, clearProps: 'transform' }, 0.06)
-        .from(lastName, { yPercent: 105, duration: 0.73, clearProps: 'transform' }, 0.19)
+        .from(firstName, { yPercent: 105, duration: 0.68 }, 0.06)
+        .from(lastName, { yPercent: 105, duration: 0.73 }, 0.19)
         .from(select('[data-opening-support]'), {
-          y: 12, opacity: 0, duration: 0.45, clearProps: 'transform,opacity',
+          y: 12, opacity: 0, duration: 0.45,
         }, 0.36);
 
       for (const title of select('[data-scroll-title]')) {
         gsap.from(title, {
-          yPercent: 90, duration: 0.62, ease: 'power3.out', clearProps: 'transform',
-          scrollTrigger: { trigger: title.parentElement, start: 'top 94%', once: true },
+          yPercent: 90, duration: 0.62, ease: 'power3.out',
+          scrollTrigger: { ...replay, trigger: title.parentElement },
         });
       }
 
       for (const visual of select('[data-image-reveal]')) {
         gsap.from(visual, {
           clipPath: 'inset(9% 0 9% 0)', opacity: 0.66, duration: 0.75,
-          ease: 'power3.out', clearProps: 'clipPath,opacity',
-          scrollTrigger: { trigger: visual, start: 'top 91%', once: true },
+          ease: 'power3.out',
+          scrollTrigger: { ...replay, trigger: visual },
         });
       }
     });
