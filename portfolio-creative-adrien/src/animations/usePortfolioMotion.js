@@ -27,17 +27,18 @@ export function usePortfolioMotion(root) {
         .from(select('[data-opening-support]'), {
           y: 12, opacity: 0, duration: 0.45,
         }, 0.36);
+      opening.timeScale(0.85);
 
       for (const title of select('[data-scroll-title]')) {
         gsap.from(title, {
-          yPercent: 90, duration: 0.62, ease: 'power3.out',
+          yPercent: 90, duration: 0.75, ease: 'power3.out',
           scrollTrigger: { ...replay, trigger: title.parentElement },
         });
       }
 
       for (const visual of select('[data-image-reveal]')) {
         gsap.from(visual, {
-          clipPath: 'inset(9% 0 9% 0)', opacity: 0.66, duration: 0.75,
+          clipPath: 'inset(9% 0 9% 0)', opacity: 0.66, duration: 0.9,
           ease: 'power3.out',
           scrollTrigger: { ...replay, trigger: visual },
         });
