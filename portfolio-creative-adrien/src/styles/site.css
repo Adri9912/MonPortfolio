@@ -441,3 +441,23 @@ dialog::backdrop { background: #11120fe0; }
   .contact-page-grid { grid-template-columns: minmax(0, 1fr); }
   .contact-page h1 { font-size: clamp(3.3rem, 12vw, 5rem); }
 }
+
+@media (max-width: 680px) {
+  :is(.chapter, .feature) { position: relative; }
+  :is(.chapter, .feature)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 44px;
+    height: 2px;
+    background: var(--page-accent);
+    opacity: 0;
+    transform: scaleX(.35);
+    transform-origin: left;
+    transition: opacity 180ms, transform 220ms var(--out);
+    pointer-events: none;
+  }
+  .chapter::before { background: var(--teal-text); }
+  :is(.chapter, .feature).is-reading::before { opacity: 1; transform: none; }
+}
