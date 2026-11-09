@@ -102,19 +102,6 @@ export function usePortfolioMotion(root) {
       };
     });
 
-    media.add('(max-width: 680px)', () => {
-      const items = select('[data-chapter], .feature');
-      for (const item of items) {
-        ScrollTrigger.create({
-          trigger: item,
-          start: 'top 55%',
-          end: 'bottom 55%',
-          toggleClass: 'is-reading',
-        });
-      }
-      return () => items.forEach(item => item.classList.remove('is-reading'));
-    });
-
     return () => media.revert();
   }, [root]);
 }
