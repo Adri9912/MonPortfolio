@@ -7,7 +7,7 @@ export function Hero() {
       <div className="hero-stage">
         <div className="hero-visual" data-opening-image>
           <div className="hero-camera" data-hero-camera>
-            <img src="/assets/adrien-768.webp" srcSet="/assets/adrien-768.webp 768w, /assets/adrien-1254.webp 1254w"
+            <img src="./assets/adrien-768.webp" srcSet="./assets/adrien-768.webp 768w, ./assets/adrien-1254.webp 1254w"
               sizes="(max-width: 680px) 100vw, 55vw" width="1254" height="1254" fetchPriority="high"
               alt="Portrait d’Adrien Calvayrac" data-hero-depth />
           </div>

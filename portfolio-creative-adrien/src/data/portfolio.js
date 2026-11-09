@@ -4,7 +4,7 @@ export const profile = {
   location: 'Lyon, France',
   availability: 'Recherche une alternance à partir de janvier 2027',
   email: 'adri.calvay@gmail.com',
-  cv: '/documents/CV_Adrien_Calvayrac.pdf',
+  cv: './documents/CV_Adrien_Calvayrac.pdf',
   contactForm: 'https://formspree.io/f/maeewdjg',
   github: 'https://github.com/Adri9912',
   linkedin: 'https://www.linkedin.com/in/adrien-calvayrac-97168914a/',
@@ -30,7 +30,7 @@ export const projects = [
   {
     id: 'evolift', theme: 'training', name: 'Evolift', type: 'Projet personnel · V1',
     description: 'Un carnet de musculation pour suivre ses séances et sa progression.',
-    image: 'evolift-v1-apercu', mobileImage: '/assets/evolift-mobile.webp', tech: ['React', 'Vite', 'Tailwind CSS', 'PWA'],
+    image: 'evolift-v1-apercu', mobileImage: './assets/evolift-mobile.webp', tech: ['React', 'Vite', 'Tailwind CSS', 'PWA'],
     role: 'J’ai développé la première version, des programmes au suivi des séances.',
     shipped: 'Programmes, historique, graphiques de progression, sauvegarde locale et export.',
     url: 'https://adri9912.github.io/evolift/', source: 'https://github.com/Adri9912/evolift',
@@ -56,7 +56,7 @@ export const gallery = [
     description: 'Le site que j’ai conçu pour présenter mes projets, mon parcours et ma recherche d’alternance.',
     image: 'portfolio-v2-apercu', tech: ['HTML', 'CSS', 'JavaScript'],
     role: 'Conception, développement des pages et adaptation mobile.',
-    url: 'https://adri9912.github.io/MonPortfolio/',
+    url: 'https://adri9912.github.io/MonPortfolio/ancien/',
   },
 ];
 

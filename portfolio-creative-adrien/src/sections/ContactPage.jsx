@@ -16,8 +16,8 @@ export function ContactPage() {
               <p className="contact-intro">Je recherche une alternance à partir de janvier 2027 en développement web et gestion de projet digital.</p>
               <ul className="contact-details">
                 <li><a href={`mailto:${profile.email}`}><Mail aria-hidden="true" /><span>{profile.email}</span></a></li>
-                <li><a href={profile.github}><img src="/assets/github.svg" alt="" width="20" height="20" /><span>GitHub</span><ArrowUpRight aria-hidden="true" /></a></li>
-                <li><a href={profile.linkedin}><img src="/assets/linkedin.svg" alt="" width="20" height="20" /><span>LinkedIn</span><ArrowUpRight aria-hidden="true" /></a></li>
+                <li><a href={profile.github}><img src="./assets/github.svg" alt="" width="20" height="20" /><span>GitHub</span><ArrowUpRight aria-hidden="true" /></a></li>
+                <li><a href={profile.linkedin}><img src="./assets/linkedin.svg" alt="" width="20" height="20" /><span>LinkedIn</span><ArrowUpRight aria-hidden="true" /></a></li>
                 <li><a href={profile.cv} target="_blank" rel="noopener"><FileText aria-hidden="true" /><span>Mon CV</span><ArrowUpRight aria-hidden="true" /></a></li>
               </ul>
             </section>

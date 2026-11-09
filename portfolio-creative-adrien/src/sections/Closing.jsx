@@ -29,8 +29,8 @@ export function Contact() {
           <a className="button" href="./contact.html">Me contacter <span className="mail-icon"><ArrowUpRight aria-hidden="true" /></span></a>
         </div>
         <div className="contact-footer">
-          <a className="text-link social-link" href={profile.github}><img src="/assets/github.svg" width="20" height="20" alt="" /> GitHub</a>
-          <a className="text-link social-link" href={profile.linkedin}><img src="/assets/linkedin.svg" width="20" height="20" alt="" /> LinkedIn</a>
+          <a className="text-link social-link" href={profile.github}><img src="./assets/github.svg" width="20" height="20" alt="" /> GitHub</a>
+          <a className="text-link social-link" href={profile.linkedin}><img src="./assets/linkedin.svg" width="20" height="20" alt="" /> LinkedIn</a>
           <a className="text-link top-link" href="#haut">Retour en haut <ArrowUp aria-hidden="true" /></a>
         </div>
       </div>

@@ -1,5 +1,5 @@
 export function ProjectMedia({ project, sizes = '(min-width: 1600px) 1440px, 92vw' }) {
-  const asset = `/assets/${project.image}`;
+  const asset = `./assets/${project.image}`;
   return (
     <img src={`${asset}-720.webp`}
       srcSet={[360, 720, 1440].map(width => `${asset}-${width}.webp ${width}w`).join(', ')}
