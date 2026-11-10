@@ -6,8 +6,36 @@ const links = [
   ['Mon parcours', '#parcours'], ['Projets', '#projets'], ['Compétences', '#competences'],
 ];
 
+const themeStorageKey = 'portfolio-color-mode';
+
+function readDayMode() {
+  try {
+    return localStorage.getItem(themeStorageKey) === 'day';
+  } catch {
+    return false;
+  }
+}
+
 function ThemeToggle() {
-  const [day, setDay] = useState(false);
+  const [day, setDay] = useState(readDayMode);
+
+  function toggleTheme() {
+    const nextDay = !day;
+    try {
+      localStorage.setItem(themeStorageKey, nextDay ? 'day' : 'night');
+    } catch {
+      // The theme still works on this page when storage is blocked.
+    }
+    setDay(nextDay);
+  }
+
+  useLayoutEffect(() => {
+    function restoreTheme(event) {
+      if (event.persisted) setDay(readDayMode());
+    }
+    window.addEventListener('pageshow', restoreTheme);
+    return () => window.removeEventListener('pageshow', restoreTheme);
+  }, []);
 
   useLayoutEffect(() => {
     const root = document.documentElement;
@@ -20,7 +48,7 @@ function ThemeToggle() {
     <button type="button" className="icon-button theme-toggle"
       aria-label="Mode sombre" aria-pressed={!day}
       title={day ? 'Passer en mode sombre' : 'Passer en mode jour'}
-      onClick={() => setDay(current => !current)}>
+      onClick={toggleTheme}>
       {day ? <Moon size={19} aria-hidden="true" /> : <Sun size={19} aria-hidden="true" />}
     </button>
   );

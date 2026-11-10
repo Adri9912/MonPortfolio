@@ -20,6 +20,7 @@ export function Hero() {
           </h1>
           <div className="hero-support" data-opening-support>
             <p className="hero-role">Développement Web<br />&amp; Gestion de Projet Digital</p>
+            <p className="availability hero-mobile-availability">{profile.availability}</p>
             <p className="hero-description">Étudiant à Epitech Lyon, je développe des applications web et m’appuie sur mon expérience en management de projet.</p>
             <a className="button button-accent" href="#projets">Explorer mes projets <ArrowDownRight aria-hidden="true" /></a>
           </div>

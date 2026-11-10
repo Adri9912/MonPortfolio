@@ -221,6 +221,7 @@ dialog::backdrop { background: #11120fe0; }
 [data-color-mode="day"] :is(.mark span, .hero-period) { color: var(--teal-text); }
 .hero-support { margin-top: clamp(16px, 3.3vh, 34px); }
 .hero-role { font: 700 clamp(1.45rem, 2.5vw, 2.5rem)/.99 var(--display); letter-spacing: .015em; text-transform: uppercase; }
+.hero-mobile-availability { display: none; }
 .hero-description { max-width: 36ch; margin-top: 12px; color: var(--page-muted); font-size: .9rem; line-height: 1.55; }
 .hero-support .button { margin-top: 20px; }
 .hero-footer {
@@ -428,9 +429,11 @@ dialog::backdrop { background: #11120fe0; }
   .hero-content { position: relative; margin-top: clamp(-102px, -11svh, -56px); padding: 0 0 23px; }
   .hero h1 { font-size: clamp(4.1rem, 18vw, 7.8rem); }
   .hero-support { margin-top: 13px; }
+  .hero-mobile-availability { display: flex; margin-top: 10px; }
   .hero-support .button { margin-top: 14px; }
   .hero-footer { grid-template-columns: 1fr auto; font-size: .75rem; min-height: 52px; }
-  .hero-footer > span { display: none; }
+  .hero-footer > span, .hero-availability { display: none; }
+  .hero-footer a { grid-column: 2; }
   .story-grid { grid-template-columns: 1fr; gap: 33px; }
   .story-index { max-width: none; margin-top: 22px; }
   .chapter { min-height: 0; padding-block: 32px 38px; }
