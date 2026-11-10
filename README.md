@@ -1,6 +1,6 @@
 # Portfolio V2 — Adrien Calvayrac
 
-(https://adri9912.github.io/MonPortfolio/)
+https://adri9912.github.io/MonPortfolio/
 
 ## Démarrer
 
