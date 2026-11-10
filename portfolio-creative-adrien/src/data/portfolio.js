@@ -19,16 +19,16 @@ export const chapters = [
 
 export const projects = [
   {
-    id: 'ligue-1-live', theme: 'pitch', name: 'Ligue 1 Live', type: 'Projet personnel',
+    id: 'ligue-1-live', name: 'Ligue 1 Live', type: 'Projet personnel',
     description: 'Les matchs, résultats et classements de Ligue 1 au même endroit.',
-    image: 'ligue1-live-apercu', tech: ['Vue 3', 'Laravel', 'Tailwind CSS', 'Highlightly'],
+    image: 'ligue1-live-apercu', mobileImage: './assets/ligue1-live-mobile.webp', tech: ['Vue 3', 'Laravel', 'Tailwind CSS', 'Highlightly'],
     role: 'J’ai conçu l’interface Vue, relié Laravel à l’API Highlightly et mis en place le cache et le rafraîchissement automatique.',
     shipped: 'Calendrier, scores, classement, filtre par club et actualités. Les comptes, les favoris et les rappels dépendent de la configuration.',
     refresh: 'Les données sont rafraîchies automatiquement, plus souvent pendant les matchs. Si l’API est indisponible, les scores cessent de s’actualiser jusqu’au retour des données.',
     url: 'https://ligue1-live.alwaysdata.net/', source: 'https://github.com/Adri9912/Ligue1-live',
   },
   {
-    id: 'evolift', theme: 'training', name: 'Evolift', type: 'Projet personnel · V1',
+    id: 'evolift', name: 'Evolift', type: 'Projet personnel · V1',
     description: 'Un carnet de musculation pour suivre ses séances et sa progression.',
     image: 'evolift-v1-apercu', mobileImage: './assets/evolift-mobile.webp', tech: ['React', 'Vite', 'Tailwind CSS', 'PWA'],
     role: 'J’ai développé la première version, des programmes au suivi des séances.',

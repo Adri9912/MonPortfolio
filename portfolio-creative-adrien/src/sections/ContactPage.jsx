@@ -1,12 +1,14 @@
 import { ArrowLeft, ArrowUpRight, FileText, Mail, Send } from 'lucide-react';
 import { Navigation } from '../components/Navigation';
+import { PageSignature } from '../components/PageSignature';
 import { profile } from '../data/portfolio';
 
 export function ContactPage() {
   return (
-    <>
+    <div id="haut">
       <Navigation contactPage />
       <main className="contact-page" id="contenu" tabIndex={-1}>
+        <div className="page-contours" aria-hidden="true" />
         <div className="wrap">
           <a className="text-link contact-back" href="./"><ArrowLeft aria-hidden="true" /> Retour à l’accueil</a>
           <h1 className="display">Me contacter<span>.</span></h1>
@@ -42,7 +44,8 @@ export function ContactPage() {
             </section>
           </div>
         </div>
+        <PageSignature />
       </main>
-    </>
+    </div>
   );
 }

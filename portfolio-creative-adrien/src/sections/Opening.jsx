@@ -5,6 +5,7 @@ export function Hero() {
   return (
     <section className="hero wrap" aria-labelledby="titre">
       <div className="hero-stage">
+        <div className="page-contours" aria-hidden="true" />
         <div className="hero-visual" data-opening-image>
           <div className="hero-camera" data-hero-camera>
             <img src="./assets/adrien-768.webp" srcSet="./assets/adrien-768.webp 768w, ./assets/adrien-1254.webp 1254w"
@@ -36,6 +37,7 @@ export function Hero() {
 export function Story() {
   return (
     <section className="story" id="parcours" aria-labelledby="parcours-title" data-story>
+      <div className="page-contours" aria-hidden="true" />
       <div className="wrap story-grid">
         <div className="story-aside">
           <div data-story-pin>

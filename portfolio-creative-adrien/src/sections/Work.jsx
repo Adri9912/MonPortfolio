@@ -7,13 +7,13 @@ function FeatureVisual({ project }) {
   const action = project.url ? 'Voir le projet' : 'Voir le code';
 
   return (
-    <a className="feature-visual" href={project.url || project.source} aria-label={`${action} · ${project.name}`} data-image-reveal>
+    <a className="feature-visual" href={project.url || project.source} target="_blank" rel="noopener" aria-label={`${action} · ${project.name}`} data-image-reveal>
       <div className="project-screen" data-image-depth>
         <ProjectMedia project={project} sizes="(min-width: 1024px) 65vw, 90vw" />
       </div>
-      {project.theme === 'training' && project.mobileImage && (
+      {project.mobileImage && (
         <div className="device" data-device-depth>
-          <img src={project.mobileImage} alt="Capture mobile d’Evolift dans un cadre de téléphone" width="780" height="1640" loading="lazy" decoding="async" />
+          <img src={project.mobileImage} alt={`Capture mobile de ${project.name}`} loading="lazy" decoding="async" />
         </div>
       )}
     </a>
@@ -33,10 +33,10 @@ function FeaturedProject({ project }) {
           <p className="feature-lead">{project.description}</p>
           <Technologies items={project.tech} />
           <div className="link-row">
-            <a className="button button-accent project-cta" href={project.url || project.source}>
+            <a className="button button-accent project-cta" href={project.url || project.source} target="_blank" rel="noopener">
               {project.url ? 'Voir le projet' : 'Voir sur GitHub'} <ArrowUpRight aria-hidden="true" />
             </a>
-            {project.url && <a className="text-link" href={project.source}>Voir le code <ArrowUpRight aria-hidden="true" /></a>}
+            {project.url && <a className="text-link" href={project.source} target="_blank" rel="noopener">Voir le code <ArrowUpRight aria-hidden="true" /></a>}
           </div>
         </div>
         <dl className="feature-facts">
@@ -74,7 +74,7 @@ function GalleryEntry({ project }) {
         <p>{project.description}</p>
         <Technologies items={project.tech} />
         {project.role && <p>{project.role}</p>}
-        {project.url && <a className="button" href={project.url}>Voir le projet <ArrowUpRight aria-hidden="true" /></a>}
+        {project.url && <a className="button" href={project.url} target="_blank" rel="noopener">Voir le projet <ArrowUpRight aria-hidden="true" /></a>}
       </dialog>
     </>
   );
@@ -84,6 +84,7 @@ export function Work() {
   return (
     <>
       <section className="work" id="projets" aria-labelledby="projets-title">
+        <div className="page-contours" aria-hidden="true" />
         <div className="wrap">
           <h2 className="display mask" id="projets-title"><span data-scroll-title>Projets choisis<span>.</span></span></h2>
           <nav className="project-index" aria-label="Accès direct aux projets">
@@ -95,6 +96,7 @@ export function Work() {
         </div>
       </section>
       <section className="gallery" aria-labelledby="galerie-title">
+        <div className="page-contours" aria-hidden="true" />
         <div className="wrap">
           <h2 className="display" id="galerie-title">Autres projets<span>.</span></h2>
           <div className="gallery-grid">

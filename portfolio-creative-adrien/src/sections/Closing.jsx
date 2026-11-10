@@ -1,9 +1,11 @@
-import { ArrowUp, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
+import { PageSignature } from '../components/PageSignature';
 import { profile, skills } from '../data/portfolio';
 
 export function Skills() {
   return (
     <section className="skills" id="competences" aria-labelledby="competences-title">
+      <div className="page-contours" aria-hidden="true" />
       <div className="wrap skill-grid">
         <h2 className="display" id="competences-title">Compétences<span>.</span></h2>
         <div>
@@ -22,6 +24,7 @@ export function Skills() {
 export function Contact() {
   return (
     <footer className="contact" id="contact" aria-labelledby="contact-title">
+      <div className="page-contours" aria-hidden="true" />
       <div className="wrap">
         <h2 className="mask" id="contact-title"><span data-scroll-title>On en parle<span>?</span></span></h2>
         <div className="contact-actions">
@@ -31,8 +34,8 @@ export function Contact() {
         <div className="contact-footer">
           <a className="text-link social-link" href={profile.github}><img src="./assets/github.svg" width="20" height="20" alt="" /> GitHub</a>
           <a className="text-link social-link" href={profile.linkedin}><img src="./assets/linkedin.svg" width="20" height="20" alt="" /> LinkedIn</a>
-          <a className="text-link top-link" href="#haut">Retour en haut <ArrowUp aria-hidden="true" /></a>
         </div>
+        <PageSignature />
       </div>
     </footer>
   );
