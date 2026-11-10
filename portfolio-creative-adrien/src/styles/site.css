@@ -238,7 +238,10 @@ dialog::backdrop { background: #11120fe0; }
 .button-accent:focus-visible { outline-color: var(--page-accent); }
 .button:active, .icon-button:active { transform: translateY(1px); }
 
-.story { background: linear-gradient(150deg, var(--story-bg), var(--story-gradient)); color: var(--ink); padding-block: var(--space); }
+.story {
+  background: linear-gradient(150deg, var(--story-bg), color-mix(in srgb, var(--story-gradient) 72%, var(--story-bg)));
+  color: var(--ink); padding-block: var(--space);
+}
 .story-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.55fr); gap: 10%; }
 .story .display span, .gallery .display span { color: var(--teal-text); }
 .story .display { font-size: clamp(3.6rem, 7.3vw, 7.5rem); }
